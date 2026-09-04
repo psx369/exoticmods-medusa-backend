@@ -72,6 +72,11 @@ The `medusa` service talks to Postgres and Redis over Railway's private network.
 | `MEDUSA_DISABLE_TELEMETRY` | Set `true` to opt out of Medusa's anonymous analytics. Baked into the Dockerfile (build + runtime), so telemetry is off by default. | Optional |
 | `RESEND_API_KEY` | Resend API key. Registers the Resend notification provider for transactional email. Must be set together with `RESEND_FROM_EMAIL`, or the provider is skipped. | Optional |
 | `RESEND_FROM_EMAIL` | Sender address for Resend. Must be on a domain verified in Resend. | Optional |
+| `MAILCHIMP_API_KEY` | Mailchimp Marketing API key. Registers the Mailchimp provider on the `newsletter` channel. Requires `MAILCHIMP_SERVER` and `MAILCHIMP_LIST_ID` too. | Optional |
+| `MAILCHIMP_SERVER` | Mailchimp server prefix, e.g. `us21` (the prefix in your API key and dashboard URL). | Optional |
+| `MAILCHIMP_LIST_ID` | Mailchimp audience (list) ID that signups are added to. | Optional |
+| `MAILCHIMP_NEW_PRODUCTS_SUBJECT_LINE` | Subject line for the weekly new-products campaign. | Optional |
+| `MAILCHIMP_NEW_PRODUCTS_STOREFRONT_URL` | Storefront base URL used to build product links in the campaign. | Optional |
 
 ### Deployment Dependencies
 

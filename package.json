@@ -9,6 +9,7 @@
     "dev": "medusa develop"
   },
   "dependencies": {
+    "@mailchimp/mailchimp_marketing": "^3.0.80",
     "@medusajs/admin-sdk": "2.20.1",
     "@medusajs/cli": "2.20.1",
     "@medusajs/framework": "2.20.1",
@@ -24,6 +25,7 @@
   "devDependencies": {
     "@medusajs/test-utils": "2.20.1",
     "@swc/core": "^1.7.28",
+    "@types/mailchimp__mailchimp_marketing": "^3.0.22",
     "@types/node": "^20.12.11",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.2.25",
