@@ -4,7 +4,14 @@ set -e
 cd /app/.medusa/server
 
 echo "[start] Running database migrations..."
-npx medusa db:migrate || {
+# --execute-safe-links is required for unattended boots. Without it, db:migrate
+# prompts ("Select tables to act upon") whenever the link planner produces an
+# UPDATE or DELETE action, and with no TTY in the container the deploy hangs
+# forever instead of failing. Safe mode still creates new link tables; it skips
+# updates and deletes, which are destructive and should be applied deliberately:
+#   medusa db:sync-links --execute-all-links
+# Run that yourself, from a snapshot, when the planner reports pending actions.
+npx medusa db:migrate --execute-safe-links < /dev/null || {
   echo "[start] db:migrate failed" >&2
   exit 1
 }
