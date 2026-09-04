@@ -26,7 +26,4 @@ module.exports = defineConfig({
     backendUrl: process.env.BACKEND_URL || "",
     disable: process.env.DISABLE_MEDUSA_ADMIN === "true",
   },
-  modules: [
-    { key: "api_key", resolve: "@medusajs/medusa/api-key" },
-  ],
 })

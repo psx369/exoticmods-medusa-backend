@@ -18,6 +18,9 @@
     "declaration": false,
     "sourceMap": false
   },
-  "include": ["src", "medusa-config.ts"],
-  "exclude": [".medusa", "node_modules"]
+  "ts-node": {
+    "swc": true
+  },
+  "include": ["src", "medusa-config.ts", ".medusa/types/*"],
+  "exclude": ["node_modules", ".medusa/server", ".medusa/admin", ".cache"]
 }

@@ -53,7 +53,7 @@ The `medusa` service talks to Postgres and Redis over Railway's private network.
 - **Postgres** — primary commerce store (Railway-managed)
 - **Redis** — cache + event bus + workflow engine (Railway-managed)
 - **Node.js 22** — runtime, Alpine base image
-- **Medusa 2.13.6** — pinned in `package.json`
+- **Medusa 2.20.1** — pinned in `package.json`
 
 ### Environment Variables Reference
 
@@ -69,6 +69,7 @@ The `medusa` service talks to Postgres and Redis over Railway's private network.
 | `BACKEND_URL` | Only set if the admin UI is served from a different domain than the API. Empty by default — admin uses same-origin relative URLs. | Optional |
 | `MEDUSA_WORKER_MODE` | `shared` (default), `server`, or `worker` | Optional |
 | `DISABLE_MEDUSA_ADMIN` | Set `true` to disable the admin UI | Optional |
+| `MEDUSA_DISABLE_TELEMETRY` | Set `true` to opt out of Medusa's anonymous analytics. Baked into the Dockerfile (build + runtime), so telemetry is off by default. | Optional |
 
 ### Deployment Dependencies
 
@@ -85,7 +86,7 @@ The `medusa` service talks to Postgres and Redis over Railway's private network.
 | CPU (medusa) | 0.5 vCPU | 1+ vCPU |
 | Postgres | 256 MB / 1 GB disk | 1 GB / 10 GB+ |
 | Redis | 256 MB | 512 MB+ |
-| Node.js | 20+ | 22 LTS |
+| Node.js | 20.19+ | 22.12+ LTS |
 
 ## How to Self-Host Medusa.js v2
 
